@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=icon href="./img/logo2.png" type="image/x-icon">
     <title>Joplin</title>
     <style>
         .navbar {
@@ -20,7 +21,7 @@
         }
         .nav ul li{
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 20px;
             ;
         }
 
@@ -34,6 +35,37 @@
             color: #ccc;
         }
 
+        .banner {
+            background-image: url("./img/background.jpg");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 500px;  /* 根据你的需要设置高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(12, 12, 12, 0.621);  /* 这里设置图片的透明度 */
+        }
+
+        .banner p {
+            color: rgba(255, 255, 255, 0.795);
+            font-size: 2em;
+            position: relative;
+            font-weight: bold;
+            z-index: 1;
+            margin-bottom: -10px;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +82,11 @@
                 <li><a href="#">Downloading</a></li>
             </ul>
         </div>
+    </div>
+    <div class="banner">
+        <p>Scott Joplin</p>
+        <p>King of Ragtime</p>
+        <p>Shop the Album Now!</p>
     </div>
     <script>
 
