@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=icon href="./img/logo2.png" type="image/x-icon">
     <title>Joplin</title>
+    <script src="https://kit.fontawesome.com/98e1cb7a78.js" crossorigin="anonymous"></script>
     <style>
         .navbar {
             display: flex;
@@ -66,6 +67,101 @@
             z-index: 1;
             margin-bottom: -10px;
         }
+
+        .product {
+            box-sizing: border-box;  /* 边距和边框不会影响宽度 */
+            margin: 40px;
+            width: 33.5%;
+        }
+
+     
+        .product-img {
+            width: 100%; /* 图片占据整个商品宽度 */
+            height: 400px; /* 设置固定的高度，你可以根据需要调整 */
+            object-fit: cover; /* 保持图片的宽高比 */
+            transition: opacity 1s ease;
+        }
+
+        .product-img:hover {
+            filter: opacity(0.7);
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;  /* 每行的商品都有相同的高度 */
+            flex-wrap: wrap;
+            
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-top: 18px;
+        }
+
+        .product-price, .product-buy {
+            transition: all 0.3s ease;
+        }
+
+        .product-price {
+            opacity: 1;
+            cursor: pointer;
+            right: 0;    
+            position: absolute;
+            z-index: 2;
+        }
+
+        .product-buy {
+            opacity: 0;
+            cursor: pointer;
+            margin-left: auto;
+            background-color: #008bbacc;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+        }
+
+        .product-price:hover {
+            opacity: 0;
+            
+        }
+
+        .product-price:hover + .product-buy {
+            opacity: 1;
+        }
+
+        .product-name {
+            font-size: 1em;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        #downarrow {
+            font-size: 3em;
+            color: white;
+            transition: transform 0.3s ease;
+            margin-top: 100px;
+            z-index: 2;
+            margin-bottom: -30px;
+        }
+
+        #downarrow:hover {
+            transform: scale(1.2);
+        }
+
+        #godown{
+            z-index: 3;
+        }
     </style>
 </head>
 <body>
@@ -87,9 +183,84 @@
         <p>Scott Joplin</p>
         <p>King of Ragtime</p>
         <p>Shop the Album Now!</p>
+        <a id='godown' href="#products">
+        <i  id='downarrow' class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
+        </a>
     </div>
+    <div id='products' class="products">
+        <div class="product">
+            <img class="product-img" src="./img/cd1.jpg" data-hover-src="./img/cd12.jpg">
+           
+            <div class="product-info">
+                <span class="product-name">The Very Best of Ragtime</span>
+                <span class="product-price">$19.99</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/cd2.jpg" data-hover-src="./img/cd22.jpg">
+           
+            <div class="product-info">
+                <span class="product-name">Dixieland Greatest Hits</span>
+                <span class="product-price">$18.89</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/cd3.jpg" data-hover-src="./img/cd32.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Piano Rags</span>
+                <span class="product-price">$16.66</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/cd4.jpg" data-hover-src="./img/cd42.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Ragtime Piano Gems</span>
+                <span class="product-price">$16.99</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <!-- 其他商品 -->
+    </div>
+    <footer style="background-color: #333; padding: 20px; color: white; text-align: center; margin-top: 50px;">
+        <img src="./img/logo.png" alt="logo" style="width: 100px;">
+        <p>&copy; 2023 Joplin Music Store. All rights reserved.</p>
+    </footer>
+    
     <script>
+           var productImgs = document.querySelectorAll('.product-img');
 
+// 为每个商品图片添加鼠标悬停事件监听器
+            productImgs.forEach(function(img) {
+                var originalSrc = img.src;
+                var hoverSrc = img.dataset.hoverSrc;
+
+                img.addEventListener('mouseover', function() {
+                    img.src = hoverSrc;
+                });
+
+                img.addEventListener('mouseout', function() {
+                    img.src = originalSrc;
+                });
+            });
+
+            window.addEventListener("DOMContentLoaded", function() {
+    var downArrow = document.getElementById("godown");
+
+    downArrow.addEventListener("click", function(event) {
+        event.preventDefault();
+        var target = document.querySelector(this.hash);
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
     </script>
 </body>
 </html>
