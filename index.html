@@ -49,6 +49,19 @@
             flex-direction: column;
         }
 
+        .banner2 {
+            background-image: url("./img/background2.jpg");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 400px;  /* 根据你的需要设置高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+        }
+
         .banner::after {
             content: "";
             position: absolute;
@@ -59,6 +72,16 @@
             background: rgba(12, 12, 12, 0.621);  /* 这里设置图片的透明度 */
         }
 
+        .banner2::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.283);  /* 这里设置图片的透明度 */
+        }
+
         .banner p {
             color: rgba(255, 255, 255, 0.795);
             font-size: 2em;
@@ -67,6 +90,28 @@
             z-index: 1;
             margin-bottom: -10px;
         }
+
+        .banner2 p {
+            color: rgb(223, 108, 108);
+            font-size: 2em;
+            position: relative;
+            font-weight: bold;
+            z-index: 1;
+            margin-bottom: -10px;
+        }
+        .sheets {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;  /* 每行的商品都有相同的高度 */
+            flex-wrap: wrap;
+        }
+
+        .sheet {
+            box-sizing: border-box;  /* 边距和边框不会影响宽度 */
+            margin: 40px;
+            width: 23.5%;
+        }
+
 
         .product {
             box-sizing: border-box;  /* 边距和边框不会影响宽度 */
@@ -226,6 +271,71 @@
         </div>
         <!-- 其他商品 -->
     </div>
+
+    <div class="banner2">
+        <p>Shop Joplin's Music Sheet</p>
+        <a id='godown' href="#sheets">
+        <i  id='downarrow' class="fa-solid fa-chevron-down" style="color:  rgb(223, 108, 108);"></i>
+        </a>
+    </div>
+    <div id='sheets' class="sheets">
+        <div class="sheet">
+            <img class="product-img" src="./img/cd1.jpg" data-hover-src="./img/cd12.jpg">
+           
+            <div class="product-info">
+                <span class="product-name">The Very Best of Ragtime</span>
+                <span class="product-price">$19.99</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="sheet">
+            <img class="product-img" src="./img/cd2.jpg" data-hover-src="./img/cd22.jpg">
+           
+            <div class="product-info">
+                <span class="product-name">Dixieland Greatest Hits</span>
+                <span class="product-price">$18.89</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="sheet">
+            <img class="product-img" src="./img/cd3.jpg" data-hover-src="./img/cd32.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Piano Rags</span>
+                <span class="product-price">$16.66</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="sheet">
+            <img class="product-img" src="./img/cd4.jpg" data-hover-src="./img/cd42.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Ragtime Piano Gems</span>
+                <span class="product-price">$16.99</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="sheet">
+            <img class="product-img" src="./img/cd3.jpg" data-hover-src="./img/cd32.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Piano Rags</span>
+                <span class="product-price">$16.66</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <div class="sheet">
+            <img class="product-img" src="./img/cd4.jpg" data-hover-src="./img/cd42.jpg">
+            
+            <div class="product-info">
+                <span class="product-name">Scott Joplin: Ragtime Piano Gems</span>
+                <span class="product-price">$16.99</span>
+                <button class="product-buy">Buy</button>
+            </div>
+        </div>
+        <!-- 其他商品 -->
+    </div>
+
     <footer style="background-color: #333; padding: 20px; color: white; text-align: center; margin-top: 50px;">
         <img src="./img/logo.png" alt="logo" style="width: 100px;">
         <p>&copy; 2023 Joplin Music Store. All rights reserved.</p>
