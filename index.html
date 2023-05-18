@@ -125,6 +125,7 @@
             height: 400px; /* 设置固定的高度，你可以根据需要调整 */
             object-fit: cover; /* 保持图片的宽高比 */
             transition: opacity 1s ease;
+            border-radius: 30px;
         }
 
         .product-img:hover {
@@ -134,8 +135,7 @@
             display: flex;
             justify-content: center;
             align-items: stretch;  /* 每行的商品都有相同的高度 */
-            flex-wrap: wrap;
-            
+            flex-wrap: wrap;            
         }
 
         .product-info {
@@ -200,11 +200,27 @@
             margin-bottom: -30px;
         }
 
+        #downarrow2:hover {
+            transform: scale(1.2);
+        }
+        #downarrow2 {
+            font-size: 3em;
+            color: white;
+            transition: transform 0.3s ease;
+            margin-top: 100px;
+            z-index: 2;
+            margin-bottom: -30px;
+        }
+
         #downarrow:hover {
             transform: scale(1.2);
         }
 
         #godown{
+            z-index: 3;
+        }
+
+        #godown2{
             z-index: 3;
         }
     </style>
@@ -274,61 +290,61 @@
 
     <div class="banner2">
         <p>Shop Joplin's Music Sheet</p>
-        <a id='godown' href="#sheets">
-        <i  id='downarrow' class="fa-solid fa-chevron-down" style="color:  rgb(223, 108, 108);"></i>
+        <a id='godown2' href="#sheets">
+        <i  id='downarrow2' class="fa-solid fa-chevron-down" style="color:  rgb(223, 108, 108);"></i>
         </a>
     </div>
     <div id='sheets' class="sheets">
         <div class="sheet">
-            <img class="product-img" src="./img/cd1.jpg" data-hover-src="./img/cd12.jpg">
+            <img class="product-img" src="./img/st1.jpg" data-hover-src="./img/st12.jpg">
            
             <div class="product-info">
-                <span class="product-name">The Very Best of Ragtime</span>
+                <span class="product-name">5 Joplin Rags</span>
                 <span class="product-price">$19.99</span>
                 <button class="product-buy">Buy</button>
             </div>
         </div>
         <div class="sheet">
-            <img class="product-img" src="./img/cd2.jpg" data-hover-src="./img/cd22.jpg">
+            <img class="product-img" src="./img/st2.jpg" data-hover-src="./img/st22.jpg">
            
             <div class="product-info">
-                <span class="product-name">Dixieland Greatest Hits</span>
+                <span class="product-name">The Entertainer</span>
                 <span class="product-price">$18.89</span>
                 <button class="product-buy">Buy</button>
             </div>
         </div>
         <div class="sheet">
-            <img class="product-img" src="./img/cd3.jpg" data-hover-src="./img/cd32.jpg">
+            <img class="product-img" src="./img/st3.jpg" data-hover-src="./img/st32.jpg">
             
             <div class="product-info">
-                <span class="product-name">Scott Joplin: Piano Rags</span>
+                <span class="product-name">King of Ragtime</span>
                 <span class="product-price">$16.66</span>
                 <button class="product-buy">Buy</button>
             </div>
         </div>
         <div class="sheet">
-            <img class="product-img" src="./img/cd4.jpg" data-hover-src="./img/cd42.jpg">
+            <img class="product-img" src="./img/st4.jpg" data-hover-src="./img/st42.jpg">
             
             <div class="product-info">
-                <span class="product-name">Scott Joplin: Ragtime Piano Gems</span>
+                <span class="product-name">Ragtime</span>
                 <span class="product-price">$16.99</span>
                 <button class="product-buy">Buy</button>
             </div>
         </div>
         <div class="sheet">
-            <img class="product-img" src="./img/cd3.jpg" data-hover-src="./img/cd32.jpg">
+            <img class="product-img" src="./img/st5.jpg" data-hover-src="./img/st52.jpg">
             
             <div class="product-info">
-                <span class="product-name">Scott Joplin: Piano Rags</span>
+                <span class="product-name">The Entertainer</span>
                 <span class="product-price">$16.66</span>
                 <button class="product-buy">Buy</button>
             </div>
         </div>
         <div class="sheet">
-            <img class="product-img" src="./img/cd4.jpg" data-hover-src="./img/cd42.jpg">
+            <img class="product-img" src="./img/st6.jpg" data-hover-src="./img/st62.jpg">
             
             <div class="product-info">
-                <span class="product-name">Scott Joplin: Ragtime Piano Gems</span>
+                <span class="product-name">A Joplin Album</span>
                 <span class="product-price">$16.99</span>
                 <button class="product-buy">Buy</button>
             </div>
@@ -360,6 +376,20 @@
 
             window.addEventListener("DOMContentLoaded", function() {
     var downArrow = document.getElementById("godown");
+
+    downArrow.addEventListener("click", function(event) {
+        event.preventDefault();
+        var target = document.querySelector(this.hash);
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
+
+window.addEventListener("DOMContentLoaded", function() {
+    var downArrow = document.getElementById("godown2");
 
     downArrow.addEventListener("click", function(event) {
         event.preventDefault();
