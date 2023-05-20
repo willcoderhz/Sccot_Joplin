@@ -23,26 +23,62 @@
             height: 80px; /* 默认大小 */
         }
 
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
 
+        .footer-logo {
+            width: 100px;
+        }
       
-
-        @media (min-width: 576px) { 
-            .logo {
-                height: 100px; /* 当屏幕宽度大于等于576px时，改变图片大小 */
-            }
+    @media (min-width: 768px) { 
+        .product {
+            width: 33%;  /* 这里使一行显示两个商品 */
         }
-
-        @media (min-width: 768px) { 
-            .logo {
-                height: 120px; /* 当屏幕宽度大于等于768px时，改变图片大小 */
-            }
+        .product-img{
+            height: 400px;
         }
-
-        @media (min-width: 992px) { 
-            .logo {
-                height: 150px; /* 当屏幕宽度大于等于992px时，改变图片大小 */
-            }
+        .sheet{
+            width: 23.5%;
         }
+        footer {
+            padding: 30px;
+            text-align: center;
+        }
+        .footer-logo {
+            width: 150px;
+        }
+    }
+
+    @media (max-width: 767px) { 
+        .product {
+        width: 60%;  /* 这里使一行显示两个商品 */
+        }
+        .sheet {
+        width: 60%;  /* 这里使一行显示两个商品 */
+        }
+        .product-img{
+            height: 190px;
+        }
+        footer {
+            padding: 10px;
+            text-align: center;
+        }
+        .footer-logo {
+            width: 50px;
+        }
+    }
+
+    .products, .sheets {
+        justify-content: space-around;
+        
+    }
+    
+       
 
         .nav-link {
         color: #ba5e5e; /* 当屏幕宽度大于等于992px时，改变字体颜色 */
@@ -122,20 +158,20 @@
         .sheet {
             box-sizing: border-box;  /* 边距和边框不会影响宽度 */
             margin: 40px;
-            width: 23.5%;
+           
         }
 
 
         .product {
             box-sizing: border-box;  /* 边距和边框不会影响宽度 */
             margin: 40px;
-            width: 33.5%;
+          
         }
 
      
         .product-img {
             width: 100%; /* 图片占据整个商品宽度 */
-            height: 400px; /* 设置固定的高度，你可以根据需要调整 */
+             /* 设置固定的高度，你可以根据需要调整 */
             object-fit: cover; /* 保持图片的宽高比 */
             transition: opacity 1s ease;
             border-radius: 30px;
@@ -377,8 +413,8 @@
         <!-- 其他商品 -->
     </div>
 
-    <footer style="background-color: #333; padding: 20px; color: white; text-align: center; margin-top: 50px;">
-        <img src="./img/logo.png" alt="logo" style="width: 100px;">
+    <footer>
+        <img class="footer-logo" src="./img/logo.png" alt="logo">
         <p>&copy; 2023 Joplin Music Store. All rights reserved.</p>
     </footer>
     
